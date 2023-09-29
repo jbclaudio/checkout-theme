@@ -12,9 +12,9 @@
             <strong class="font-medium">
                 @lang($item['heading'])
                 @if ($key === 'orders')
-                    <graphql query="{customer{orders{items{number}}}}">
+                    <graphql query="{customer{orders{total_count}}}">
                         <template v-if="data" slot-scope="{ data }">
-                            (@{{ data.customer.orders.items.length ?? 0 }})
+                            (@{{ data.customer?.orders?.total_count ?? 0 }})
                         </template>
                     </graphql>
                 @endif
